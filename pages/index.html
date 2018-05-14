@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SPRINGMVC-LOGIN</title>
+    <script type="text/javascript" src="/libs/axios/axios.min.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+</head>
+<body>
+<div id="app">
+    <Row>
+        <i-col span="24">
+            <div><h1>{{head}}</h1></div>
+        </i-col>
+    </Row>
+    <Row>
+        <i-col span="6">
+            <div>
+                <my-menu v-bind:menus="menus"></my-menu>
+            </div>
+        </i-col>
+        <i-col span="18">
+            <div><h1>HEAD</h1></div>
+        </i-col>
+    </Row>
+</div>
+<template id="myMenu">
+    {{menus}}
+    <i-menu style="width: 100%">
+        <Submenu name="submenu.subIndex" v-for="submenu in menus">
+            <template slot="title">
+                <Icon type="ios-paper"></Icon>
+                {{submenu.subName}}
+            </template>
+            <Menu-Item name="item.itemIndex" v-for="item in submenu.menuItemList"><a v-bind:href="item.itemUrl">{{item.itemName}}</a>
+            </Menu-Item>
+        </Submenu>
+    </i-menu>
+</template>
+<script type="text/javascript" src="../js/index.js"></script>
+</body>
+</html>

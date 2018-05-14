@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
+    <script type="text/javascript" src="/libs/axios/axios.min.js"></script>
     <script type="text/javascript" src="/js/common.js"></script>
     <style>
         html, body {
@@ -31,6 +32,7 @@
         <i-formitem>
             <div style="text-align: right;">
                 <i-button type="primary" @click="handleSubmit">Signin</i-button>
+                <i-button type="primary" @click="handleForgetPassword">Forget Password</i-button>
             </div>
         </i-formitem>
     </i-form>
@@ -47,10 +49,28 @@
                 var data = {};
                 data.userId = vm.loginForm.user;
                 data.password = vm.loginForm.password;
+                data.createDt = new Date();
                 axios.post(url, data).then(function (res) {
                     var result = res.data;
                     if (result.success) {
-                        alert('success');
+                        window.location.href='pages/index.html';
+                    } else {
+                        alert('faild');
+                    }
+                });
+            },
+            handleForgetPassword: function (event) {
+                var url = baseUrl + "/login/user";
+                axios.get(url, {
+                    params: {
+                        'userId': vm.loginForm.user,
+                        'createDt': new Date()
+                    }
+                }).then(function (res) {
+                    var result = res.data;
+                    if (result.success) {
+                        alert(window.document.cookie);
+                        window.location.href = 'pages/index.html';
                     } else {
                         alert('faild');
                     }
