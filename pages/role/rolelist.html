@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>角色列表</title>
+    <script type="text/javascript" src="/libs/axios/axios.min.js"></script>
+    <script type="application/javascript" src="../../js/common.js"></script>
+</head>
+<body>
+<div id="app" style="height: 840px;">
+    <i-form :label-width="100" inline>
+        <Row class="login-row-margin">
+            <i-col span="6">
+                <form-item label="角色名称">
+                    <i-input v-model="roleName"></i-input>
+                </form-item>
+            </i-col>
+            <i-col span="18" style="text-align: right;">
+                <form-item>
+                    <i-button type="primary" @click="getRoleList">查询</i-button>
+                </form-item>
+            </i-col>
+        </Row>
+    </i-form>
+    <br/>
+    <!--<my-rolelist :rolelistcolumns="roleListColumns" :rolelistdata="roleListData"></my-rolelist>-->
+
+    <i-table border :columns="roleListColumns" :data="roleListData" height="520" @on-change="changePage" @on-page-size-change="changePageSize"></i-table>
+    <Page size="small" :total="total" show-elevator show-sizer  @on-change="changePage" @on-page-size-change="changePageSize"></Page>
+</div>
+
+<template id="rolelist">
+    <i-table border :columns="rolelistcolumns" :data="rolelistdata" height="520" @on-change="vm.changePage" @on-page-size-change="vm.changePageSize"></i-table>
+</template>
+
+<script type="application/javascript" src="../../js/role/rolelist.js"></script>
+</body>
+</html>

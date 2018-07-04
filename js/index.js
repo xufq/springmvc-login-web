@@ -9,15 +9,6 @@ var vm = new Vue({
         return {head: 'HEAD', menus: []}
     },
     created: function () {
-        // this.menus = [{
-        //     'subIndex': 1,
-        //     'subName': '统计分析',
-        //     'menuItemList': [{
-        //         'itemIndex': 1,
-        //         'itemUrl': 'http://www.baidu.com',
-        //         'itemName': '新增和启动'
-        //     }]
-        // }];
         var url = baseUrl + "/menu/menulist";
         axios.get(url, {
             params: {}
