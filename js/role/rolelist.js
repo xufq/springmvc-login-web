@@ -73,6 +73,13 @@ var vm = new Vue({
                 }
             });
         },
+        reset:function () {
+            const _self = this;
+            _self.roleName = "";
+        },
+        gotoAddPage:function () {
+            location.href = "roleinfo.html";
+        },
         changePage: function (page) {
             vm.page = page;
             vm.getRoleList();

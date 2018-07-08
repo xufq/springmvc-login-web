@@ -2,7 +2,7 @@ var vm = new Vue({
     el: '#app',
     mounted: function () {
         this.requestParam = getRequest();
-        if (this.requestParam && this.requestParam.roleId != '') {
+        if (this.requestParam && this.requestParam.roleId) {
             this.disableFlag = true;
             this.queryRoleInfo();
         } else {
