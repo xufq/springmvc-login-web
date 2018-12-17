@@ -1,8 +1,3 @@
-Vue.component('my-rolelist', {
-    template: '#rolelist',
-    props: ['rolelistcolumns', 'rolelistdata']
-});
-
 var vm = new Vue({
     el: '#app',
     data: function () {

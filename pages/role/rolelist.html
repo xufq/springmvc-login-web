@@ -25,15 +25,10 @@
         </Row>
     </i-form>
     <br/>
-    <!--<my-rolelist :rolelistcolumns="roleListColumns" :rolelistdata="roleListData"></my-rolelist>-->
 
     <i-table border :columns="roleListColumns" :data="roleListData" height="520" @on-change="changePage" @on-page-size-change="changePageSize"></i-table>
     <Page size="small" :total="total" show-elevator show-sizer  @on-change="changePage" @on-page-size-change="changePageSize"></Page>
 </div>
-
-<template id="rolelist">
-    <i-table border :columns="rolelistcolumns" :data="rolelistdata" height="520" @on-change="vm.changePage" @on-page-size-change="vm.changePageSize"></i-table>
-</template>
 
 <script type="application/javascript" src="../../js/role/rolelist.js"></script>
 </body>

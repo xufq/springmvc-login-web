@@ -1,6 +1,12 @@
 Vue.component('my-menu', {
     template: '#myMenu',
-    props: ['menus']
+    props: ['menus'],
+    methods: {
+        gotoPage: function (url) {
+            $("#main").attr('src', url);
+        }
+
+    }
 });
 
 var vm = new Vue({
@@ -9,17 +15,9 @@ var vm = new Vue({
         return {head: 'HEAD', menus: []}
     },
     created: function () {
-        var url = baseUrl + "/menu/menulist";
-        axios.get(url, {
-            params: {}
-        }).then(function (res) {
-            var result = res.data;
-            if (result.success) {
-                vm.menus = result.list;
-            }
-        });
+        this.getMenuList();
     },
-    method: {
+    methods: {
         getMenuList: function () {
             var url = baseUrl + "/menu/menulist";
             axios.get(url, {
@@ -27,14 +25,10 @@ var vm = new Vue({
             }).then(function (res) {
                 var result = res.data;
                 if (result.success) {
-                    alert('success');
                     vm.menus = result.data;
-                } else {
-                    alert('faild');
                 }
             });
         }
-
     }
 
 
