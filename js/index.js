@@ -5,7 +5,6 @@ Vue.component('my-menu', {
         gotoPage: function (url) {
             $("#main").attr('src', url);
         }
-
     }
 });
 
